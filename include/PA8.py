@@ -1,19 +1,19 @@
-def engg(S: str):
-    if len(S) < 4:
-        if S == "GG":
-            return "true"
-        else:
-            return "false"
+def engg(s: str):
+    if len(s) < 4:
+        return "false"
     else:
-        S = list(S)
-        if S[0] == "e" or S[0] == "E":
-            S.pop(0)
-            while S[0] == "N":
-                S.pop(0)
+        s = list(s)
+        if (s[0] == "e" or s[0] == "E") and s[1] == "N" :
+            s.pop(0)
+            while s[0] == "N":
+                s.pop(0)
+            s = "".join(s)
+            if s == "GG":
+                return "true"
+            else:
+                return engg(s)
         else:
             return "false"
-        S = "".join(S)
-        return engg(S)
 
 
 inparr = []
